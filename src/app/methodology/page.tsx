@@ -194,7 +194,14 @@ export default function MethodologyPage() {
             <Logo size={17} className="shrink-0" />
             Data &amp; Methodology
           </h1>
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-2">
+            <Link
+              href="/lse"
+              className="hidden h-8 items-center gap-1.5 rounded-sm border border-line bg-surface px-2.5 text-[12px] text-text-muted transition-colors hover:border-line-strong hover:text-text sm:inline-flex"
+            >
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-ok" />
+              LSE Live
+            </Link>
             <ThemeToggle />
           </div>
         </div>

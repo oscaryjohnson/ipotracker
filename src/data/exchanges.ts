@@ -53,10 +53,10 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     statutoryAccountsSource: "Companies House annual accounts",
     productionSource: {
       tier: "structured-feed",
-      label: "LSE - New Issues and IPOs (official XLSX)",
-      url: "https://docs.londonstockexchange.com/sites/default/files/reports/New%20issues%20and%20IPOs_2.xlsx",
+      label: "LSE - Monthly Main Market equity factsheets (XLSX)",
+      url: "https://www.londonstockexchange.com/reports?tab=main-market",
       acquisitionNote:
-        "Best case of the eleven. The LSE publishes a machine-readable spreadsheet of new issues and the IPO pipeline. Free, official, and parseable with a single XLSX read - no scraping required.",
+        "Built and running - see the LSE Live page. Each month the LSE publishes a factsheet with a New Issues table carrying admission date, issuer, ticker, issue type, an explicit IPO flag, ICB sector and market cap. Note the correction: the older 'New issues and IPOs' workbook looked like the ideal source but is frozen at 31 December 2020. Note also that these are completed admissions, not a forward pipeline - upcoming listings surface through RNS.",
     },
   },
   WSE: {

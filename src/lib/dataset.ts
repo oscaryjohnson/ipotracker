@@ -1,6 +1,7 @@
 import { EXCHANGES, toUsd } from "@/data/exchanges";
 import { buildFinancials, seededScale } from "@/data/financials";
 import { RAW_IPOS, type RawIpo } from "@/data/ipos";
+import { parseIsoDate } from "@/lib/format";
 import type { Contact, IpoRecord } from "@/lib/types";
 
 /**
@@ -111,8 +112,9 @@ export function computeStats(records: IpoRecord[], now = new Date()): DatasetSta
     }
 
     if (record.expectedListingDate) {
-      const date = new Date(record.expectedListingDate);
-      if (date >= now && date <= horizon) listingsNext30Days += 1;
+      // Parsed as a local calendar date; see parseIsoDate for why.
+      const date = parseIsoDate(record.expectedListingDate);
+      if (date && date >= now && date <= horizon) listingsNext30Days += 1;
     }
   }
 

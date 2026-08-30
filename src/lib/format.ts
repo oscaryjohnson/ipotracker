@@ -28,11 +28,30 @@ export function formatValuation(valuation: Valuation | null): string {
   return valuation ? formatUsdCompact(valuation.usdAmount) : NA;
 }
 
+/**
+ * Parse a calendar date without letting the viewer's timezone shift it.
+ *
+ * `new Date("2026-07-31")` is parsed as UTC midnight, so anywhere west of
+ * Greenwich it renders as 30 July. A listing date is a calendar date, not an
+ * instant -- it does not move depending on who is reading the page. Building
+ * the Date from its parts pins it to local midnight instead.
+ */
+function parseIsoDate(iso: string): Date | null {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso);
+  if (!match) return null;
+  const date = new Date(
+    Number(match[1]),
+    Number(match[2]) - 1,
+    Number(match[3]),
+  );
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
 /** "24 Sep 2026", or N/A when the market has no date yet. */
 export function formatDate(iso: string | null): string {
   if (!iso) return NA;
-  const date = new Date(iso);
-  if (Number.isNaN(date.getTime())) return NA;
+  const date = parseIsoDate(iso);
+  if (!date) return NA;
   return date.toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "short",
@@ -42,14 +61,16 @@ export function formatDate(iso: string | null): string {
 
 export function formatDateLong(iso: string | null): string {
   if (!iso) return "Not yet scheduled";
-  const date = new Date(iso);
-  if (Number.isNaN(date.getTime())) return "Not yet scheduled";
+  const date = parseIsoDate(iso);
+  if (!date) return "Not yet scheduled";
   return date.toLocaleDateString("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
 }
+
+export { parseIsoDate };
 
 export const DATE_CONFIDENCE_LABEL: Record<DateConfidence, string> = {
   confirmed: "Confirmed",
@@ -60,8 +81,8 @@ export const DATE_CONFIDENCE_LABEL: Record<DateConfidence, string> = {
 /** Days until listing; negative or null when not applicable. */
 export function daysUntil(iso: string | null, now = new Date()): number | null {
   if (!iso) return null;
-  const date = new Date(iso);
-  if (Number.isNaN(date.getTime())) return null;
+  const date = parseIsoDate(iso);
+  if (!date) return null;
   const ms = date.getTime() - now.getTime();
   return Math.ceil(ms / 86_400_000);
 }

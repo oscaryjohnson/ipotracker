@@ -13,6 +13,7 @@ import {
 import {
   DATE_CONFIDENCE_LABEL,
   daysUntil,
+  formatDate,
   formatDateLong,
   formatLocal,
   formatUsdCompact,
@@ -437,13 +438,7 @@ export function IpoTable({
                   <td className="tabular px-3 py-2.5 align-middle text-[12.5px]">
                     {record.expectedListingDate ? (
                       <span className="text-text">
-                        {new Date(
-                          record.expectedListingDate,
-                        ).toLocaleDateString("en-GB", {
-                          day: "2-digit",
-                          month: "short",
-                          year: "numeric",
-                        })}
+                        {formatDate(record.expectedListingDate)}
                       </span>
                     ) : (
                       <Missing reason="No listing date announced yet." />

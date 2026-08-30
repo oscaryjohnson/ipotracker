@@ -100,6 +100,14 @@ export function Dashboard({ records }: { records: IpoRecord[] }) {
             >
               Data &amp; methodology
             </Link>
+            {/* Marked with the live dot: this is the one page on real data. */}
+            <Link
+              href="/lse"
+              className="hidden h-8 items-center gap-1.5 rounded-sm border border-line bg-surface px-2.5 text-[12px] text-text-muted transition-colors hover:border-line-strong hover:text-text sm:inline-flex"
+            >
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-ok" />
+              LSE Live
+            </Link>
             <ThemeToggle />
           </div>
         </div>

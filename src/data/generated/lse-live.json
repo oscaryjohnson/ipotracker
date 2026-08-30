@@ -1,0 +1,810 @@
+{
+  "source": "London Stock Exchange — Main Market monthly equity factsheets",
+  "sourceIndexUrl": "https://www.londonstockexchange.com/reports?tab=main-market",
+  "fetchedAt": "2026-08-30T18:02:27.747Z",
+  "latestPeriod": "July 2026",
+  "dataDescription": "Completed admissions to the LSE Main Market. Not a forward pipeline: companies appear on the day they list.",
+  "summary": {
+    "year": 2026,
+    "companiesUk": 757,
+    "companiesInternational": 147,
+    "companiesTotal": 904
+  },
+  "files": [
+    {
+      "period": "January 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20January%202025.xlsx",
+      "issueCount": 1
+    },
+    {
+      "period": "February 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20February%202025.xlsx",
+      "issueCount": 3
+    },
+    {
+      "period": "March 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20March%202025.xlsx",
+      "issueCount": 2
+    },
+    {
+      "period": "April 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20April%202025.xlsx",
+      "issueCount": 2
+    },
+    {
+      "period": "May 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20May%202025.xlsx",
+      "issueCount": 1
+    },
+    {
+      "period": "June 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20June%202025.xlsx",
+      "issueCount": 1
+    },
+    {
+      "period": "July 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20July%202025.xlsx",
+      "issueCount": 3
+    },
+    {
+      "period": "August 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20August%202025.xlsx",
+      "issueCount": 2
+    },
+    {
+      "period": "September 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20September%202025.xlsx",
+      "issueCount": 1
+    },
+    {
+      "period": "October 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20October%202025.xlsx",
+      "issueCount": 6
+    },
+    {
+      "period": "November 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20November%202025.xlsx",
+      "issueCount": 3
+    },
+    {
+      "period": "December 2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20December%202025.xlsx",
+      "issueCount": 3
+    },
+    {
+      "period": "January 2026",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20January%202026.xlsx",
+      "issueCount": 1
+    },
+    {
+      "period": "February 2026",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20February%202026.xlsx",
+      "issueCount": 3
+    },
+    {
+      "period": "March 2026",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20March%202026.xlsx",
+      "issueCount": 2
+    },
+    {
+      "period": "April 2026",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20April%202026.xlsx",
+      "issueCount": 3
+    },
+    {
+      "period": "May 2026",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20May%202026.xlsx",
+      "issueCount": 3
+    },
+    {
+      "period": "June 2026",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20June%202026.xlsx",
+      "issueCount": 0
+    },
+    {
+      "period": "July 2026",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20July%202026.xlsx",
+      "issueCount": 2
+    }
+  ],
+  "issues": [
+    {
+      "admissionDate": "2026-07-31",
+      "issuerName": "AMAROQ LTD.",
+      "symbol": "AMRQ",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Precious Metals and Mining",
+      "countryOfIncorporation": "Canada",
+      "marketCapAtAdmission": 491.888,
+      "moneyRaised": 0,
+      "period": "July 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20July%202026.xlsx",
+      "symbols": [
+        "AMRQ"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-07-24",
+      "issuerName": "VOLEX PLC",
+      "symbol": "VLX",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Electronic and Electrical Equipment",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 1177.984,
+      "moneyRaised": 0,
+      "period": "July 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20July%202026.xlsx",
+      "symbols": [
+        "VLX"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-05-01",
+      "issuerName": "MERIDIAN MINING PLC",
+      "symbol": "MNO",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": "Industrial Metals and Mining",
+      "countryOfIncorporation": "Brazil",
+      "marketCapAtAdmission": 466.093,
+      "moneyRaised": 25,
+      "period": "May 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20May%202026.xlsx",
+      "symbols": [
+        "MNO"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-05-01",
+      "issuerName": "MORTGAGE ADVICE BUREAU (HOLDINGS) PLC",
+      "symbol": "MAB1",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Finance and Credit Services",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 308.676,
+      "moneyRaised": 0,
+      "period": "May 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20May%202026.xlsx",
+      "symbols": [
+        "MAB1"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-05-01",
+      "issuerName": "ROSEBANK INDUSTRIES PLC",
+      "symbol": "ROSE",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Electronic and Electrical Equipment",
+      "countryOfIncorporation": "Jersey",
+      "marketCapAtAdmission": 3696.695,
+      "moneyRaised": 0,
+      "period": "May 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20May%202026.xlsx",
+      "symbols": [
+        "ROSE"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-04-28",
+      "issuerName": "YOUNG & CO'S BREWERY PLC",
+      "symbol": "YNGA",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Travel and Leisure",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 299.335,
+      "moneyRaised": 0,
+      "period": "April 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20April%202026.xlsx",
+      "symbols": [
+        "YNGA",
+        "YNGN"
+      ],
+      "instrumentCount": 2
+    },
+    {
+      "admissionDate": "2026-04-16",
+      "issuerName": "ONWARD OPPORTUNITIES LIMITED",
+      "symbol": "ONWD",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Closed End Investments",
+      "countryOfIncorporation": "Guernsey",
+      "marketCapAtAdmission": 44.922,
+      "moneyRaised": 0,
+      "period": "April 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20April%202026.xlsx",
+      "symbols": [
+        "ONWD"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-03-05",
+      "issuerName": "GLOBALDATA PLC",
+      "symbol": "DATA",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Industrial Support Services",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 506.327,
+      "moneyRaised": 0,
+      "period": "March 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20March%202026.xlsx",
+      "symbols": [
+        "DATA"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-03-02",
+      "issuerName": "B&M EUROPEAN VALUE RETAIL PLC",
+      "symbol": "BME",
+      "issueType": "Reverse takeover",
+      "isIpo": false,
+      "icbSector": "Retailers",
+      "countryOfIncorporation": "Luxembourg",
+      "marketCapAtAdmission": 1919.623,
+      "moneyRaised": 0,
+      "period": "March 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20March%202026.xlsx",
+      "symbols": [
+        "BME"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-02-25",
+      "issuerName": "IFOREX FINANCIAL TRADING HOLDINGS LTD.",
+      "symbol": "IFRX",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": "Investment Banking and Brokerage Services",
+      "countryOfIncorporation": "Guernsey",
+      "marketCapAtAdmission": 44.928,
+      "moneyRaised": 8.75,
+      "period": "February 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20February%202026.xlsx",
+      "symbols": [
+        "IFRX"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-02-04",
+      "issuerName": "DAUCH CORPORATION",
+      "symbol": "DCH",
+      "issueType": "Introduction",
+      "isIpo": false,
+      "icbSector": "Automobiles and Parts",
+      "countryOfIncorporation": "United States",
+      "marketCapAtAdmission": 1343.308,
+      "moneyRaised": 0,
+      "period": "February 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20February%202026.xlsx",
+      "symbols": [
+        "DCH"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-02-03",
+      "issuerName": "THE SMARTER WEB COMPANY PLC",
+      "symbol": "SWC",
+      "issueType": "Introduction",
+      "isIpo": false,
+      "icbSector": "Software and Computer Services",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 150.602,
+      "moneyRaised": 0,
+      "period": "February 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20February%202026.xlsx",
+      "symbols": [
+        "SWC"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2026-01-29",
+      "issuerName": "CVS GROUP PLC",
+      "symbol": "CVSG",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Consumer Services",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 940.092,
+      "moneyRaised": 0,
+      "period": "January 2026",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20January%202026.xlsx",
+      "symbols": [
+        "CVSG"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-12-10",
+      "issuerName": "MAYFLOWER ACQUISITION LIMITED",
+      "symbol": "MAY",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": "Open End and Miscellaneous Investment Vehicles",
+      "countryOfIncorporation": "British Virgin Islands",
+      "marketCapAtAdmission": 0,
+      "moneyRaised": 374.377,
+      "period": "December 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20December%202025.xlsx",
+      "symbols": [
+        "MAY"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-12-10",
+      "issuerName": "THE GENERATION ESSENTIALS GROUP",
+      "symbol": "TGE",
+      "issueType": "Introduction",
+      "isIpo": false,
+      "icbSector": "Closed End Investments",
+      "countryOfIncorporation": "Cayman Islands",
+      "marketCapAtAdmission": 34.817,
+      "moneyRaised": 0,
+      "period": "December 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20December%202025.xlsx",
+      "symbols": [
+        "TGE"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-12-08",
+      "issuerName": "THE MAGNUM ICE CREAM COMPANY N.V.",
+      "symbol": "MICC",
+      "issueType": "Introduction",
+      "isIpo": false,
+      "icbSector": "Personal Care, Drug and Grocery Stores",
+      "countryOfIncorporation": "Netherlands",
+      "marketCapAtAdmission": 6734.857,
+      "moneyRaised": 0,
+      "period": "December 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20December%202025.xlsx",
+      "symbols": [
+        "MICC"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-11-25",
+      "issuerName": "KR1 PLC",
+      "symbol": "KR1",
+      "issueType": "Introduction",
+      "isIpo": false,
+      "icbSector": "Investment Banking and Brokerage Services",
+      "countryOfIncorporation": "Isle of Man",
+      "marketCapAtAdmission": 47.157,
+      "moneyRaised": 0,
+      "period": "November 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20November%202025.xlsx",
+      "symbols": [
+        "KR1"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-11-05",
+      "issuerName": "PRINCES GROUP PLC",
+      "symbol": "PRN",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": "Food Producers",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 0,
+      "moneyRaised": 400,
+      "period": "November 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20November%202025.xlsx",
+      "symbols": [
+        "PRN"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-11-04",
+      "issuerName": "SHAWBROOK GROUP PLC",
+      "symbol": "SHAW",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": "Banks",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 0,
+      "moneyRaised": 50,
+      "period": "November 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20November%202025.xlsx",
+      "symbols": [
+        "SHAW"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-10-31",
+      "issuerName": "CINDRIGO HOLDINGS LIMITED",
+      "symbol": "CINH",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": null,
+      "countryOfIncorporation": "Guernsey",
+      "marketCapAtAdmission": 46.748,
+      "moneyRaised": 2.061,
+      "period": "October 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20October%202025.xlsx",
+      "symbols": [
+        "CINH"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-10-30",
+      "issuerName": "GB GROUP PLC",
+      "symbol": "GBG",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Software and Computer Services",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 591.063,
+      "moneyRaised": 0,
+      "period": "October 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20October%202025.xlsx",
+      "symbols": [
+        "GBG"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-10-24",
+      "issuerName": "PAN AFRICAN RESOURCES PLC",
+      "symbol": "PAF",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Precious Metals and Mining",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 2682.74,
+      "moneyRaised": 0,
+      "period": "October 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20October%202025.xlsx",
+      "symbols": [
+        "PAF"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-10-08",
+      "issuerName": "THE BEAUTY TECH GROUP PLC",
+      "symbol": "TBTG",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": "Personal Care, Drug and Grocery Stores",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 0,
+      "moneyRaised": 29,
+      "period": "October 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20October%202025.xlsx",
+      "symbols": [
+        "TBTG"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-10-06",
+      "issuerName": "ASHTEAD TECHNOLOGY HOLDINGS PLC",
+      "symbol": "AT.",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Oil, Gas and Coal",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 318.466,
+      "moneyRaised": 0,
+      "period": "October 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20October%202025.xlsx",
+      "symbols": [
+        "AT."
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-10-02",
+      "issuerName": "FERMI INC.",
+      "symbol": "FRMI",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": "Real Estate Investment Trusts",
+      "countryOfIncorporation": "United States",
+      "marketCapAtAdmission": 14523.238,
+      "moneyRaised": 0,
+      "period": "October 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20October%202025.xlsx",
+      "symbols": [
+        "FRMI"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-09-12",
+      "issuerName": "THIRD POINT INVESTORS LIMITED",
+      "symbol": "MLHL",
+      "issueType": "Reverse takeover",
+      "isIpo": false,
+      "icbSector": null,
+      "countryOfIncorporation": "Guernsey",
+      "marketCapAtAdmission": 313.949,
+      "moneyRaised": 0,
+      "period": "September 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20September%202025.xlsx",
+      "symbols": [
+        "MLHL"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-08-04",
+      "issuerName": "METLEN ENERGY & METALS PLC",
+      "symbol": "MTLN",
+      "issueType": "Exchange Offer - New Company",
+      "isIpo": true,
+      "icbSector": "Gas, Water and Multi-utilities",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 5366.376,
+      "moneyRaised": 0,
+      "period": "August 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20August%202025.xlsx",
+      "symbols": [
+        "MTLN"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-08-01",
+      "issuerName": "JOHNSON SERVICE GROUP PLC",
+      "symbol": "JSG",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Industrial Support Services",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 569.463,
+      "moneyRaised": 0,
+      "period": "August 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20August%202025.xlsx",
+      "symbols": [
+        "JSG"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-07-23",
+      "issuerName": "HONYE FINANCIAL SERVICES LIMITED",
+      "symbol": "ZOYO",
+      "issueType": "Reverse takeover",
+      "isIpo": false,
+      "icbSector": "Open End and Miscellaneous Investment Vehicles",
+      "countryOfIncorporation": "Cayman Islands",
+      "marketCapAtAdmission": 66.863,
+      "moneyRaised": 2.5,
+      "period": "July 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20July%202025.xlsx",
+      "symbols": [
+        "ZOYO"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-07-08",
+      "issuerName": "SANTANDER UK PLC",
+      "symbol": "SANB",
+      "issueType": "Issue of Tranche",
+      "isIpo": false,
+      "icbSector": "Banks",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 0,
+      "moneyRaised": 0,
+      "period": "July 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20July%202025.xlsx",
+      "symbols": [
+        "SANB"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-07-01",
+      "issuerName": "ELIXIRR INTERNATIONAL PLC",
+      "symbol": "ELIX",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Industrial Support Services",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 322.374,
+      "moneyRaised": 0,
+      "period": "July 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20July%202025.xlsx",
+      "symbols": [
+        "ELIX"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-06-02",
+      "issuerName": "VALTERRA PLATINUM LIMITED",
+      "symbol": "VALT",
+      "issueType": "Introduction",
+      "isIpo": false,
+      "icbSector": "Precious Metals and Mining",
+      "countryOfIncorporation": "South Africa",
+      "marketCapAtAdmission": 7507.769,
+      "moneyRaised": 0,
+      "period": "June 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20June%202025.xlsx",
+      "symbols": [
+        "VALT"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-05-02",
+      "issuerName": "GAMMA COMMUNICATIONS PLC",
+      "symbol": "GAMA",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Telecommunications Service Providers",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 1240.849,
+      "moneyRaised": 0,
+      "period": "May 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20May%202025.xlsx",
+      "symbols": [
+        "GAMA"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-04-30",
+      "issuerName": "TECHNOLOGIES NEW ENERGY PLC",
+      "symbol": "TNE",
+      "issueType": "Reverse takeover",
+      "isIpo": false,
+      "icbSector": "Open End and Miscellaneous Investment Vehicles",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 19.855,
+      "moneyRaised": 0.4,
+      "period": "April 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20April%202025.xlsx",
+      "symbols": [
+        "TNE"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-04-02",
+      "issuerName": "PUMA AIM VCT PLC",
+      "symbol": "PAIM",
+      "issueType": "Offer for Subscription - New Company",
+      "isIpo": true,
+      "icbSector": null,
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 3.422,
+      "moneyRaised": 3.319,
+      "period": "April 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20April%202025.xlsx",
+      "symbols": [
+        "PAIM"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-03-28",
+      "issuerName": "BROOKS MACDONALD GROUP PLC",
+      "symbol": "BRK",
+      "issueType": "Transfer from AIM",
+      "isIpo": false,
+      "icbSector": "Investment Banking and Brokerage Services",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 253.11,
+      "moneyRaised": 0,
+      "period": "March 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20March%202025.xlsx",
+      "symbols": [
+        "BRK"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-03-21",
+      "issuerName": "CITIUS RESOURCES PLC",
+      "symbol": "HREE",
+      "issueType": "Reverse takeover",
+      "isIpo": false,
+      "icbSector": "Open End and Miscellaneous Investment Vehicles",
+      "countryOfIncorporation": "United Kingdom",
+      "marketCapAtAdmission": 9.312,
+      "moneyRaised": 11.119,
+      "period": "March 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20March%202025.xlsx",
+      "symbols": [
+        "HREE"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-02-25",
+      "issuerName": "ACHILLES INVESTMENT COMPANY LIMITED",
+      "symbol": "AIC",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": null,
+      "countryOfIncorporation": "Guernsey",
+      "marketCapAtAdmission": 54,
+      "moneyRaised": 54,
+      "period": "February 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20February%202025.xlsx",
+      "symbols": [
+        "AIC"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-02-12",
+      "issuerName": "FINTECH ASIA LIMITED",
+      "symbol": "FINA",
+      "issueType": "Reverse takeover",
+      "isIpo": false,
+      "icbSector": "Open End and Miscellaneous Investment Vehicles",
+      "countryOfIncorporation": "Guernsey",
+      "marketCapAtAdmission": 126.189,
+      "moneyRaised": 0,
+      "period": "February 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20February%202025.xlsx",
+      "symbols": [
+        "FINA"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-02-04",
+      "issuerName": "INTERNATIONAL PAPER COMPANY",
+      "symbol": "IPC",
+      "issueType": "Introduction",
+      "isIpo": false,
+      "icbSector": "Industrial Materials",
+      "countryOfIncorporation": "United States",
+      "marketCapAtAdmission": 22598.602,
+      "moneyRaised": 0,
+      "period": "February 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20February%202025.xlsx",
+      "symbols": [
+        "IPC"
+      ],
+      "instrumentCount": 1
+    },
+    {
+      "admissionDate": "2025-01-13",
+      "issuerName": "VINANZ LIMITED",
+      "symbol": "BTC",
+      "issueType": "New Company Placing",
+      "isIpo": true,
+      "icbSector": null,
+      "countryOfIncorporation": "British Virgin Islands",
+      "marketCapAtAdmission": 41.861,
+      "moneyRaised": 1.5,
+      "period": "January 2025",
+      "sourceUrl": "https://docs.londonstockexchange.com/sites/default/files/reports/Main%20Market%20factsheet%20January%202025.xlsx",
+      "symbols": [
+        "BTC"
+      ],
+      "instrumentCount": 1
+    }
+  ]
+}
