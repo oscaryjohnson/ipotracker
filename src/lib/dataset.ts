@@ -70,6 +70,8 @@ function normalise(raw: RawIpo): IpoRecord {
       sector: raw.sector,
       status: raw.status,
       currency: meta.currency,
+      countryCode: meta.countryCode,
+      statutoryAccountsSource: meta.statutoryAccountsSource,
       equityValue: raw.valuationLocal,
       fallbackScale,
     }),

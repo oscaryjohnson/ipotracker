@@ -20,6 +20,17 @@ export interface ExchangeMeta {
   currency: string;
   /** Approximate local-currency -> USD rate used for cross-exchange sorting. */
   usdRate: number;
+  /**
+   * Whether private companies in this jurisdiction file annual accounts on a
+   * public register.
+   *
+   * This decides what a pre-filing company can honestly show. In the UK,
+   * Germany and Poland, statutory accounts are public before any prospectus
+   * exists, so historical revenue and balance sheet are genuinely obtainable
+   * for a rumoured listing. Elsewhere in this set they are not, and a rumoured
+   * company should show nothing at all.
+   */
+  statutoryAccountsSource: string | null;
   productionSource: {
     tier: SourceTier;
     label: string;
@@ -39,6 +50,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "GB",
     currency: "GBP",
     usdRate: 1.27,
+    statutoryAccountsSource: "Companies House annual accounts",
     productionSource: {
       tier: "structured-feed",
       label: "LSE - New Issues and IPOs (official XLSX)",
@@ -56,6 +68,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "PL",
     currency: "PLN",
     usdRate: 0.25,
+    statutoryAccountsSource: "KRS financial documents repository",
     productionSource: {
       tier: "html-scrape",
       label: "GPW - New listings and debuts",
@@ -73,6 +86,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "AE",
     currency: "AED",
     usdRate: 0.2723,
+    statutoryAccountsSource: null,
     productionSource: {
       tier: "pdf-extract",
       label: "DFM - Disclosures and IPO prospectuses",
@@ -90,6 +104,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "SA",
     currency: "SAR",
     usdRate: 0.2666,
+    statutoryAccountsSource: null,
     productionSource: {
       tier: "pdf-extract",
       label: "Saudi Exchange - Upcoming listings and CMA approvals",
@@ -107,6 +122,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "ZA",
     currency: "ZAR",
     usdRate: 0.055,
+    statutoryAccountsSource: null,
     productionSource: {
       tier: "html-scrape",
       label: "JSE - SENS announcements and new listings",
@@ -124,6 +140,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "BR",
     currency: "BRL",
     usdRate: 0.183,
+    statutoryAccountsSource: null,
     productionSource: {
       tier: "html-scrape",
       label: "B3 / CVM - Public offerings under review",
@@ -141,6 +158,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "SG",
     currency: "SGD",
     usdRate: 0.742,
+    statutoryAccountsSource: null,
     productionSource: {
       tier: "html-scrape",
       label: "SGX - IPO prospectus index (OPERA)",
@@ -158,6 +176,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "TW",
     currency: "TWD",
     usdRate: 0.0312,
+    statutoryAccountsSource: null,
     productionSource: {
       tier: "html-scrape",
       label: "TWSE - Newly listed companies / MOPS filings",
@@ -175,6 +194,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "TH",
     currency: "THB",
     usdRate: 0.0286,
+    statutoryAccountsSource: null,
     productionSource: {
       tier: "html-scrape",
       label: "SET - Upcoming IPOs and new securities",
@@ -192,6 +212,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "MY",
     currency: "MYR",
     usdRate: 0.222,
+    statutoryAccountsSource: null,
     productionSource: {
       tier: "html-scrape",
       label: "Bursa Malaysia - IPO Summary",
@@ -209,6 +230,7 @@ export const EXCHANGES: Record<ExchangeCode, ExchangeMeta> = {
     countryCode: "DE",
     currency: "EUR",
     usdRate: 1.081,
+    statutoryAccountsSource: "Bundesanzeiger annual accounts",
     productionSource: {
       tier: "html-scrape",
       label: "Deutsche Boerse - New admissions to trading",

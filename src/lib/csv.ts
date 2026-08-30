@@ -28,6 +28,8 @@ const HEADERS = [
   "CFO Email",
   "CFO Email Confidence",
   "Website",
+  "Financials Basis",
+  "Fiscal Year End",
   "Revenue 2027E",
   "EBITDA 2027E",
   "Net Income 2027E",
@@ -59,8 +61,11 @@ export function toCsv(records: IpoRecord[]): string {
 
   for (const r of records) {
     const fin = r.financials;
-    // The final forecast year is what the multiples are struck against.
-    const forecast = fin?.years[fin.years.length - 1] ?? null;
+    // The final *forecast* year is what the multiples are struck against.
+    // Records built from statutory accounts have no forecast at all, and their
+    // last row is an actual -- exporting it under a 2027E heading would
+    // misrepresent history as a projection.
+    const forecast = fin?.years.filter((y) => y.projected).at(-1) ?? null;
 
     lines.push(
       [
@@ -82,17 +87,19 @@ export function toCsv(records: IpoRecord[]): string {
         cell(r.cfo.email),
         cell(r.cfo.emailProvenance),
         cell(r.website),
+        cell(fin?.basis ?? null),
+        cell(fin?.fiscalYearEnd ?? null),
         cell(forecast?.revenue ?? null),
         cell(forecast?.ebitda ?? null),
         cell(forecast?.netIncome ?? null),
         cell(fin?.balanceSheet.tangibleEquity ?? null),
         cell(fin?.balanceSheet.netDebt ?? null),
         cell(fin?.enterpriseValue ?? null),
-        cell(fin?.benchmark.impliedForwardPe ?? null),
-        cell(fin?.benchmark.impliedEvEbitda ?? null),
-        cell(fin?.benchmark.impliedPriceSales ?? null),
-        cell(range(fin?.benchmark.peerForwardPe ?? null)),
-        cell(range(fin?.benchmark.peerEvEbitda ?? null)),
+        cell(fin?.benchmark?.impliedForwardPe ?? null),
+        cell(fin?.benchmark?.impliedEvEbitda ?? null),
+        cell(fin?.benchmark?.impliedPriceSales ?? null),
+        cell(range(fin?.benchmark?.peerForwardPe ?? null)),
+        cell(range(fin?.benchmark?.peerEvEbitda ?? null)),
         cell(r.sourceRef.label),
         cell(r.sourceRef.url),
         cell(r.sourceRef.lastVerified),

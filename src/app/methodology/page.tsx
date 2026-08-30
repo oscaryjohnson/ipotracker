@@ -116,7 +116,37 @@ function Difficulty({ level }: { level: number }) {
   );
 }
 
+/** Disclosure tiers, counted from the dataset so the page cannot drift. */
+function disclosureTiers() {
+  const prospectus = IPOS.filter(
+    (r) => r.financials?.basis === "prospectus",
+  ).length;
+  const statutory = IPOS.filter(
+    (r) => r.financials?.basis === "statutory-accounts",
+  ).length;
+  const none = IPOS.filter((r) => !r.financials).length;
+
+  return [
+    {
+      name: "Filed or approved — full disclosure",
+      count: prospectus,
+      shows: "A lodged prospectus carries audited historical financials, so these show a full income statement, balance sheet and cash flow, plus forecast years and underwriter peer benchmarking. Three years of history is the norm under the UK and EU prospectus regimes, with comparable requirements at Bursa, SGX, SET and Tadawul.",
+    },
+    {
+      name: "Rumoured, public accounts register — history only",
+      count: statutory,
+      shows: "No prospectus, but private companies in the UK, Germany and Poland file annual accounts publicly, so historical revenue and balance sheet are genuinely obtainable. No forecasts and no peer multiples: nobody has published research on a deal that does not formally exist yet.",
+    },
+    {
+      name: "Rumoured, no public accounts — nothing",
+      count: none,
+      shows: "No prospectus and no public annual-accounts register in the jurisdiction. Nothing about these companies' finances is public, so the Financials tab reports nothing rather than filling the space with an estimate.",
+    },
+  ];
+}
+
 export default function MethodologyPage() {
+  const DISCLOSURE_TIERS = disclosureTiers();
   const sourceCounts = EXCHANGE_CODES.reduce<Record<SourceTier, number>>(
     (acc, code) => {
       const tier = EXCHANGES[code].productionSource.tier;
@@ -340,6 +370,47 @@ export default function MethodologyPage() {
               than fabricated.
             </p>
           </div>
+
+          <h3 className="mt-6 text-[12px] font-medium uppercase tracking-[0.08em] text-text-muted">
+            What each company is allowed to show
+          </h3>
+          <div className="mt-3 space-y-3 text-[13.5px] leading-relaxed text-text-muted">
+            <p>
+              Disclosure is gated on where a company sits in the pipeline,
+              because availability genuinely differs — and getting this wrong is
+              the easiest way for a dashboard like this to show numbers that
+              could not exist.
+            </p>
+          </div>
+          <div className="mt-4 space-y-3">
+            {DISCLOSURE_TIERS.map((tier) => (
+              <div
+                key={tier.name}
+                className="rounded-sm border border-line bg-surface p-4"
+              >
+                <div className="flex flex-wrap items-baseline gap-x-3">
+                  <h4 className="text-[12.5px] font-medium text-text">
+                    {tier.name}
+                  </h4>
+                  <span className="tabular text-[11px] uppercase tracking-[0.08em] text-text-faint">
+                    {tier.count} of {IPOS.length}
+                  </span>
+                </div>
+                <p className="mt-1.5 text-[12.5px] leading-relaxed text-text-muted">
+                  {tier.shows}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-[12.5px] leading-relaxed text-text-faint">
+            The consequence is that the dashboard shows less than it could.
+            Forward estimates in particular are rarer in practice than this kind
+            of tool usually implies: US registration statements essentially
+            never carry projections, and under the EU regime a profit forecast
+            is optional and requires a reporting accountant&apos;s report. The
+            numbers that do appear are attributed to connected analyst research
+            rather than to the prospectus itself.
+          </p>
 
           <h3 className="mt-6 text-[12px] font-medium uppercase tracking-[0.08em] text-text-muted">
             Where these would come from in production

@@ -45,15 +45,18 @@ function IncomeStatement({ financials }: { financials: Financials }) {
     { label: "EBITDA", key: "ebitda" as const },
     { label: "Net income", key: "netIncome" as const },
   ];
+  const hasForecast = financials.years.some((year) => year.projected);
 
   return (
     <div>
-      <div className="flex items-baseline justify-between">
+      <div className="flex items-baseline justify-between gap-3">
         <h4 className="text-[11px] uppercase tracking-[0.08em] text-text-faint">
           Income statement
         </h4>
         <span className="text-[10.5px] text-text-faint">
-          {financials.currency}, E = forecast
+          {financials.currency}
+          {hasForecast ? ", E = forecast" : ""} · FY ends{" "}
+          {financials.fiscalYearEnd}
         </span>
       </div>
 
@@ -99,8 +102,7 @@ function IncomeStatement({ financials }: { financials: Financials }) {
       </div>
 
       <p className="mt-2 text-[11px] leading-snug text-text-faint">
-        Figures restated from the prospectus financial statements. Forecast
-        years are the underwriter&apos;s projections, not company guidance.
+        {financials.basisNote}
       </p>
     </div>
   );
@@ -136,7 +138,13 @@ function BalanceSheet({ financials }: { financials: Financials }) {
           label="Enterprise value"
           value={
             financials.enterpriseValue === null ? (
-              <Missing reason="No valuation disclosed, so enterprise value cannot be derived." />
+              <Missing
+                reason={
+                  financials.basis === "statutory-accounts"
+                    ? "No prospectus lodged, so there is no marketed valuation to build an enterprise value from."
+                    : "No valuation disclosed, so enterprise value cannot be derived."
+                }
+              />
             ) : (
               formatFigure(financials.enterpriseValue)
             )
@@ -150,6 +158,28 @@ function BalanceSheet({ financials }: { financials: Financials }) {
 
 function Benchmarking({ financials }: { financials: Financials }) {
   const b = financials.benchmark;
+
+  // No prospectus means no connected research, so there is nothing to report
+  // rather than a multiple invented to fill the column.
+  if (!b) {
+    return (
+      <div>
+        <h4 className="text-[11px] uppercase tracking-[0.08em] text-text-faint">
+          Valuation benchmarking
+        </h4>
+        <p className="mt-2 text-[12.5px] leading-relaxed text-text-muted">
+          Not available before filing.
+        </p>
+        <p className="mt-1.5 text-[11px] leading-snug text-text-faint">
+          Peer analysis and implied multiples come from underwriter research
+          published alongside a prospectus. This company has not lodged one, so
+          no bank has analysed the deal and no forecast earnings exist to strike
+          a multiple against.
+        </p>
+      </div>
+    );
+  }
+
   const peVerdict = multipleVsPeers(b.impliedForwardPe, b.peerForwardPe);
   const evVerdict = multipleVsPeers(b.impliedEvEbitda, b.peerEvEbitda);
 
@@ -224,10 +254,10 @@ export function AdditionalInfo({
           No financial disclosure available.
         </p>
         <p className="mt-1.5 text-[12.5px] leading-relaxed text-text-muted">
-          This listing is at the rumoured stage with no prospectus lodged and no
-          valuation signalled. Financial statements and underwriter benchmarking
-          only become available once a company files, so there is nothing to
-          report here yet rather than an estimate standing in for it.
+          This listing is at the rumoured stage with no prospectus lodged, and
+          its jurisdiction does not publish annual accounts for private
+          companies. Nothing about its finances is public yet, so nothing is
+          reported here rather than an estimate standing in for it.
         </p>
       </div>
     );
@@ -244,8 +274,9 @@ export function AdditionalInfo({
       <div className="min-w-0">
         <Benchmarking financials={financials} />
         <p className="mt-3 border-t border-line pt-2 text-[11px] leading-snug text-text-faint">
-          Sourced in production from prospectus financial statements and
-          comparable-company multiples.{" "}
+          {financials.basis === "prospectus"
+            ? "Sourced in production from prospectus financial statements and comparable-company multiples."
+            : "Sourced in production from the public annual-accounts register for this jurisdiction."}{" "}
           <Link
             href="/methodology"
             className="underline decoration-line-strong underline-offset-2 hover:text-text"

@@ -47,10 +47,18 @@ Two consequences worth knowing:
   which implies revenue, which grows backwards into a history. The implied
   EV/EBITDA shown really is enterprise value divided by the projected EBITDA
   beside it. The arithmetic holds if you check it.
+- **Financial disclosure is gated on pipeline status**, because availability
+  genuinely differs. The 47 filed and approved companies have a prospectus, so
+  they show full statements plus forecasts and underwriter peer benchmarking.
+  The 7 rumoured companies in jurisdictions with a public accounts register
+  (UK, Germany, Poland) show history only — no forecasts, no multiples, because
+  no bank has analysed a deal that does not formally exist. The remaining 16
+  show nothing at all.
 
 Gaps are seeded deliberately so the missing-data handling is exercised rather
-than asserted: 11 listings have no announced date, 11 disclose no valuation, 16
-name no CFO, and 8 rumoured listings carry no financial disclosure at all.
+than asserted: 11 listings have no announced date, 11 disclose no valuation, and
+16 name no CFO. Fiscal year ends vary by market rather than defaulting to
+December everywhere.
 
 ## Stack
 

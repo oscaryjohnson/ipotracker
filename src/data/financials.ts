@@ -225,6 +225,21 @@ const PROFILES: Record<SectorCode, SectorProfile> = {
 const YEAR_LABELS = ["2023", "2024", "2025", "2026E", "2027E"];
 const PROJECTED_FROM_INDEX = 3;
 
+/**
+ * Financial year ends actually seen in each market.
+ *
+ * Not every issuer reports to 31 December. UK, Singapore, Malaysian and South
+ * African companies routinely close on other dates, and a table where all
+ * seventy companies share a year end reads as generated rather than gathered.
+ */
+const YEAR_ENDS: Partial<Record<string, string[]>> = {
+  GB: ["31 December", "31 March", "30 June", "30 September"],
+  SG: ["31 December", "30 June", "31 March"],
+  MY: ["31 December", "30 June"],
+  ZA: ["31 December", "28 February", "30 June"],
+  TH: ["31 December", "30 September"],
+};
+
 /* -------------------------------------------------------------- generation */
 
 export function buildFinancials(args: {
@@ -232,24 +247,46 @@ export function buildFinancials(args: {
   sector: SectorCode;
   status: IpoStatus;
   currency: string;
+  countryCode: string;
+  /** Public annual-accounts register, or null where accounts are not public. */
+  statutoryAccountsSource: string | null;
   /** Expected equity value in local currency, or null if undisclosed. */
   equityValue: number | null;
   /** Fallback scale when no valuation is disclosed, in local currency. */
   fallbackScale: number;
 }): Financials | null {
-  const { id, sector, status, currency, equityValue, fallbackScale } = args;
+  const {
+    id,
+    sector,
+    status,
+    currency,
+    countryCode,
+    statutoryAccountsSource,
+    equityValue,
+    fallbackScale,
+  } = args;
 
-  // A rumoured listing with no disclosed valuation has not lodged a
-  // prospectus, so there is no financial disclosure to read. Leaving these
-  // null is more honest than inventing a filing that does not exist.
-  if (status === "rumoured" && equityValue === null) return null;
+  // What a company can honestly show depends on whether it has filed.
+  //
+  // Filed and approved issuers have a prospectus: audited historicals, and
+  // connected analyst forecasts and peer benchmarking alongside it.
+  //
+  // A rumoured company has none of that. In jurisdictions with a public
+  // annual-accounts register it still has history someone could look up; in
+  // the rest of this set it has nothing public at all. Either way nobody has
+  // published a forecast or a peer multiple on it, because there is no deal to
+  // analyse yet.
+  const filed = status !== "rumoured";
+  if (!filed && !statutoryAccountsSource) return null;
+
+  const basis: Financials["basis"] = filed ? "prospectus" : "statutory-accounts";
 
   const rng = makeRng(seedFrom(id));
   const profile = PROFILES[sector];
 
-  // Sizing basis: the real valuation where disclosed, otherwise a plausible
+  // Sizing base: the real valuation where disclosed, otherwise a plausible
   // scale so the statements still exist without implying a price.
-  const basis = equityValue ?? fallbackScale;
+  const sizingBasis = equityValue ?? fallbackScale;
 
   const margin = between(rng, ...profile.ebitdaMargin);
   const leverage = between(rng, ...profile.leverage);
@@ -264,9 +301,9 @@ export function buildFinancials(args: {
   if (profile.lossMaking) {
     // Pre-profit: modest collaboration revenue against a cash burn, and a net
     // cash position from the raise rather than borrowings.
-    revenueFinal = basis * between(rng, 0.012, 0.045);
-    ebitdaFinal = -basis * between(rng, 0.03, 0.065);
-    netDebt = -basis * between(rng, 0.06, 0.14);
+    revenueFinal = sizingBasis * between(rng, 0.012, 0.045);
+    ebitdaFinal = -sizingBasis * between(rng, 0.03, 0.065);
+    netDebt = -sizingBasis * between(rng, 0.06, 0.14);
   } else {
     // Work backwards from the peer multiple: EV = equity + net debt, and
     // EV = EBITDA x multiple, with net debt itself a multiple of EBITDA.
@@ -281,14 +318,14 @@ export function buildFinancials(args: {
       profile.peerEvEbitda.high * 1.16,
     );
     const denominator = Math.max(evMultiple - leverage, 2.5);
-    ebitdaFinal = basis / denominator;
+    ebitdaFinal = sizingBasis / denominator;
     revenueFinal = ebitdaFinal / margin;
     netDebt = ebitdaFinal * leverage;
   }
 
   // Grow the final year backwards into a history. Growth eases slightly in the
   // forecast years, which is how projections are usually presented.
-  const years: FinancialYear[] = [];
+  const allYears: FinancialYear[] = [];
   let revenue = revenueFinal;
 
   for (let i = YEAR_LABELS.length - 1; i >= 0; i--) {
@@ -304,7 +341,7 @@ export function buildFinancials(args: {
       : between(rng, ...profile.netIncomeConversion) *
         (1 - (YEAR_LABELS.length - 1 - i) * 0.03);
 
-    years.unshift({
+    allYears.unshift({
       label: YEAR_LABELS[i],
       projected,
       revenue: sig(revenue),
@@ -316,42 +353,67 @@ export function buildFinancials(args: {
     revenue = revenue / (1 + yearGrowth);
   }
 
-  const finalYear = years[years.length - 1];
-  const latestActual = years[PROJECTED_FROM_INDEX - 1];
+  const forecastYear = allYears[allYears.length - 1];
+  const latestActual = allYears[PROJECTED_FROM_INDEX - 1];
 
-  const totalEquity = basis / priceToBook;
+  // Some regimes require only two years of history, and carve-outs and recent
+  // reorganisations often cannot produce a third. A uniform three everywhere
+  // is tidier than reality.
+  const historyYears = rng() < 0.28 ? 2 : 3;
+  const firstYear = PROJECTED_FROM_INDEX - historyYears;
+
+  // Forecast years survive only where a prospectus exists to attach them to.
+  const years = filed
+    ? allYears.slice(firstYear)
+    : allYears.slice(firstYear, PROJECTED_FROM_INDEX);
+
+  const yearEndOptions = YEAR_ENDS[countryCode] ?? ["31 December"];
+  const fiscalYearEnd =
+    yearEndOptions[Math.floor(rng() * yearEndOptions.length)];
+
+  const totalEquity = sizingBasis / priceToBook;
   const tangibleEquity = totalEquity * between(rng, 0.62, 0.94);
   const totalAssets = totalEquity + Math.max(netDebt, 0) + totalEquity * between(rng, 0.35, 0.9);
   const operatingCashFlow = latestActual.ebitda * between(rng, 0.74, 0.95);
   const freeCashFlow = operatingCashFlow - latestActual.revenue * capexRate;
 
-  const enterpriseValue = equityValue === null ? null : equityValue + netDebt;
+  // Enterprise value rests on a valuation, which only means something once a
+  // deal is being marketed. Press speculation is not a price.
+  const enterpriseValue =
+    !filed || equityValue === null ? null : equityValue + netDebt;
 
-  const benchmark = {
-    peerForwardPe: profile.lossMaking ? null : profile.peerForwardPe,
-    peerEvEbitda: profile.lossMaking ? null : profile.peerEvEbitda,
-    impliedForwardPe:
-      equityValue !== null && finalYear.netIncome > 0
-        ? Math.round((equityValue / finalYear.netIncome) * 10) / 10
-        : null,
-    impliedEvEbitda:
-      enterpriseValue !== null && finalYear.ebitda > 0
-        ? Math.round((enterpriseValue / finalYear.ebitda) * 10) / 10
-        : null,
-    impliedPriceSales:
-      equityValue !== null && finalYear.revenue > 0
-        ? Math.round((equityValue / finalYear.revenue) * 10) / 10
-        : null,
-    peerSetNote: profile.peerSetNote,
-    notMeaningfulNote: profile.lossMaking
-      ? "Pre-profit. Earnings and EBITDA multiples are not meaningful at this stage; the peer set is benchmarked on risk-adjusted pipeline value and price to book instead."
-      : equityValue === null
-        ? "No valuation range has been signalled, so implied multiples cannot be calculated. Peer ranges are shown for reference."
-        : null,
-  };
+  const benchmark = filed
+    ? {
+        peerForwardPe: profile.lossMaking ? null : profile.peerForwardPe,
+        peerEvEbitda: profile.lossMaking ? null : profile.peerEvEbitda,
+        impliedForwardPe:
+          equityValue !== null && forecastYear.netIncome > 0
+            ? Math.round((equityValue / forecastYear.netIncome) * 10) / 10
+            : null,
+        impliedEvEbitda:
+          enterpriseValue !== null && forecastYear.ebitda > 0
+            ? Math.round((enterpriseValue / forecastYear.ebitda) * 10) / 10
+            : null,
+        impliedPriceSales:
+          equityValue !== null && forecastYear.revenue > 0
+            ? Math.round((equityValue / forecastYear.revenue) * 10) / 10
+            : null,
+        peerSetNote: profile.peerSetNote,
+        notMeaningfulNote: profile.lossMaking
+          ? "Pre-profit. Earnings and EBITDA multiples are not meaningful at this stage; the peer set is benchmarked on risk-adjusted pipeline value and price to book instead."
+          : equityValue === null
+            ? "No valuation range has been signalled, so implied multiples cannot be calculated. Peer ranges are shown for reference."
+            : null,
+      }
+    : null;
 
   return {
     currency,
+    basis,
+    basisNote: filed
+      ? "Audited historical financial information restated from the lodged prospectus. Forecast years are connected analyst estimates, not company guidance."
+      : `Historical figures only, from ${statutoryAccountsSource}. This company has not lodged a prospectus, so there are no forecasts and no underwriter peer analysis to report.`,
+    fiscalYearEnd,
     years,
     balanceSheet: {
       totalAssets: sig(totalAssets),

@@ -133,12 +133,31 @@ export interface ValuationBenchmark {
   notMeaningfulNote: string | null;
 }
 
+/**
+ * What the figures are actually drawn from.
+ *
+ * - `prospectus`         audited historicals from a lodged filing, plus
+ *                        analyst forecasts and peer benchmarking
+ * - `statutory-accounts` public annual accounts for a company that has not
+ *                        filed yet: history only, no forecasts, no multiples
+ */
+export type FinancialsBasis = "prospectus" | "statutory-accounts";
+
 export interface Financials {
   currency: string;
-  /** Three actual years followed by two forecast years. */
+  basis: FinancialsBasis;
+  /** Names the register or filing the statements come from. */
+  basisNote: string;
+  /** Financial year end, e.g. "31 December". Year ends vary by market. */
+  fiscalYearEnd: string;
+  /** Actual years, followed by forecast years only where a prospectus exists. */
   years: FinancialYear[];
   balanceSheet: BalanceSheetMetrics;
-  benchmark: ValuationBenchmark;
+  /**
+   * Null before a prospectus is lodged. No bank publishes peer analysis on a
+   * company that has not filed, so showing a multiple there would be invented.
+   */
+  benchmark: ValuationBenchmark | null;
   /** Enterprise value used for EV-based multiples: equity value plus net debt. */
   enterpriseValue: number | null;
 }
