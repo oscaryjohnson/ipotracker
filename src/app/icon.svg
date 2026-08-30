@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+  <style>
+    /* Favicons render against browser chrome, not the page, so the mark picks
+       its own ink from the OS scheme rather than inheriting anything. */
+    .bar { stroke: #131316; }
+    .rule { stroke: #131316; opacity: 0.5; }
+    @media (prefers-color-scheme: dark) {
+      .bar { stroke: #ededf0; }
+      .rule { stroke: #ededf0; opacity: 0.55; }
+    }
+  </style>
+  <path class="rule" d="M3.5 9.5H20.5" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <path class="bar" d="M5.5 20V15" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+  <path class="bar" d="M11.5 20V12" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+  <path class="bar" d="M17.5 20V4" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+</svg>

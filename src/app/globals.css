@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens.
+
+   Near-monochrome by intent. Colour is spent only where it carries meaning:
+   email provenance and nothing else. Everything structural -- status, sector,
+   exchange, emphasis -- is expressed through weight, border and opacity so the
+   table stays readable at density and never looks decorated.
+
+   Both themes are defined as the same token names, so components never need a
+   `dark:` variant. `[data-theme]` wins over the system preference in both
+   directions, which is what makes the toggle work.
+--------------------------------------------------------------------------- */
+
+:root {
+  --bg: #ffffff;
+  --surface: #fbfbfc;
+  --surface-2: #f4f4f5;
+  --surface-3: #ececee;
+  --line: #e6e6e9;
+  --line-strong: #d3d3d8;
+  --text: #131316;
+  --text-muted: #6b6b76;
+  --text-faint: #9a9aa5;
+  --accent: #1f4bd8;
+  --focus: #1f4bd8;
+  --ok: #1a7f4b;
+  --warn: #9a5b09;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 1px 3px rgb(0 0 0 / 0.06);
+}
+
+/* Dark palette, applied both to the system preference and the explicit toggle.
+   Kept in one place so the two can never drift apart. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0a0c;
+    --surface: #121216;
+    --surface-2: #1a1a1f;
+    --surface-3: #232329;
+    --line: #26262d;
+    --line-strong: #37373f;
+    --text: #ededf0;
+    --text-muted: #9494a0;
+    --text-faint: #6a6a76;
+    --accent: #7ea2ff;
+    --focus: #7ea2ff;
+    --ok: #4ec98a;
+    --warn: #e0a33c;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 1px 3px rgb(0 0 0 / 0.3);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a0a0c;
+  --surface: #121216;
+  --surface-2: #1a1a1f;
+  --surface-3: #232329;
+  --line: #26262d;
+  --line-strong: #37373f;
+  --text: #ededf0;
+  --text-muted: #9494a0;
+  --text-faint: #6a6a76;
+  --accent: #7ea2ff;
+  --focus: #7ea2ff;
+  --ok: #4ec98a;
+  --warn: #e0a33c;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 1px 3px rgb(0 0 0 / 0.3);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    color-scheme: dark;
+  }
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Numerics line up column-to-column. Non-negotiable for a financial table. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+::selection {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Restrained scrollbars -- the default Windows ones are visually loud. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border: 3px solid var(--bg);
+  border-radius: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
