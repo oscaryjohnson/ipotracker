@@ -4,7 +4,7 @@ A dashboard tracking upcoming IPO listings across eleven global exchanges: Londo
 Warsaw, Dubai, Riyadh, Johannesburg, São Paulo, Singapore, Taipei, Bangkok,
 Kuala Lumpur and Frankfurt.
 
-**Live:** _add your Vercel URL here after deploying_
+**Live:** https://ipotracker-blue.vercel.app/
 
 ---
 
