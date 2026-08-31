@@ -85,27 +85,6 @@ export default function LsePage() {
           </div>
 
           <h3 className="mt-8 text-[12px] font-medium uppercase tracking-[0.08em] text-text-muted">
-            A correction worth recording
-          </h3>
-          <div className="mt-3 space-y-3 text-[13.5px] leading-relaxed text-text-muted">
-            <p>
-              The methodology page originally named a different file as the
-              LSE&apos;s best source: a single &ldquo;New issues and IPOs&rdquo;
-              workbook covering 1995 onwards, described as the easiest of the
-              eleven exchanges to ingest. Building this adapter proved that
-              wrong. That workbook is real and parses cleanly — 5,875 rows — but
-              it is <span className="font-medium text-text">frozen at 31
-              December 2020</span> and has not been updated since.
-            </p>
-            <p>
-              The monthly factsheets used here are the current publication. The
-              lesson generalises to the other ten exchanges: a source that looks
-              ideal in a directory listing can be abandoned, and you only find
-              out by fetching it and reading the dates.
-            </p>
-          </div>
-
-          <h3 className="mt-8 text-[12px] font-medium uppercase tracking-[0.08em] text-text-muted">
             How it refreshes
           </h3>
           <div className="mt-3 space-y-3 text-[13.5px] leading-relaxed text-text-muted">
